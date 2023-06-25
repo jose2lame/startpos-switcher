@@ -8,5 +8,4 @@
 </ul>
 <h2>Installation</h2>
 
-<p>Put minhook.x32.dll in GD folder</p>
-<p>Put startpos-switcher.dll in .GDHM/api folder</p>
+<p>Unpack StartposSwitcher.zip in GD folder</p>
