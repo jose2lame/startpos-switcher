@@ -29,14 +29,14 @@ void GDHMHeader(void) {
         json j = {};
         std::fstream fs(".startpos_switcher/settings.json", std::ios::in | std::ios::out);
 
-        if(fs.is_open()) {
+        if (fs.is_open()) {
             fs >> j;
         }
 
         fs.close();
         fs.open(".startpos_switcher/settings.json", std::ios::out | std::ios::trunc);
 
-        if(fs.is_open()) {
+        if (fs.is_open()) {
             j["Toogle"] = mods::toogle;
             j["Use A/D Keybinds"] = mods::useAD;
             j["Hide Interface"] = mods::hideInterface;
@@ -58,11 +58,25 @@ void GDHMHeader(void) {
     };
 
     auto onToogle = [&updateJson](void) {
-        if(switcher::isCreated){
-            if(switcher::isInMenu == false) {
-                switcher::text->setVisible((!mods::hideInterface) && mods::toogle && !(switcher::startPoses.empty()));
-                switcher::leftArrowButton->setVisible((!mods::hideInterface) && mods::toogle && !(switcher::startPoses.empty()) && mods::useArrows);
-                switcher::rightArrowButton->setVisible((!mods::hideInterface) && mods::toogle && !(switcher::startPoses.empty()) && mods::useArrows);
+        if (switcher::isCreated){
+            if (switcher::isInMenu == false) {
+                switcher::text->setVisible(
+                    (!mods::hideInterface) && 
+                    mods::toogle && 
+                    !(switcher::startPoses.empty())
+                );
+                switcher::leftArrowButton->setVisible(
+                    (!mods::hideInterface) && 
+                    mods::toogle && 
+                    !(switcher::startPoses.empty()) && 
+                    mods::useArrows
+                );
+                switcher::rightArrowButton->setVisible(
+                    (!mods::hideInterface) && 
+                    mods::toogle && 
+                    !(switcher::startPoses.empty()) && 
+                    mods::useArrows
+                );
             }
         }
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ModMenuLayer.hpp"
-#include "ModPauseLayer.hpp"
-#include "ModPlayLayer.hpp"
-#include "ModUILayer.hpp"
+#include "layers/ModMenuLayer.hpp"
+#include "layers/ModPauseLayer.hpp"
+#include "layers/ModPlayLayer.hpp"
+#include "layers/ModUILayer.hpp"

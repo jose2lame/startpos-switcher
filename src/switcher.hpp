@@ -8,7 +8,9 @@
 #include <gd.h>
 
 namespace switcher {
-    extern std::vector<std::pair<gd::StartPosObject*, cocos2d::CCPoint>> startPoses;
+    extern std::vector<
+        std::pair<gd::StartPosObject*, cocos2d::CCPoint> > 
+        startPoses;
     extern std::array<cocos2d::enumKeyCodes, 2> keyBinds;
     extern std::ptrdiff_t index;
     extern cocos2d::CCLabelBMFont* text;
@@ -24,7 +26,11 @@ namespace switcher {
     void updateIndex(bool increment);
 
     struct Callbacks {
-        void leftArrowButtonCallback(cocos2d::CCObject* obj);
-        void rightArrowButtonCallback(cocos2d::CCObject* obj);
+        void leftArrowButtonCallback(
+            cocos2d::CCObject* obj
+        );
+        void rightArrowButtonCallback(
+            cocos2d::CCObject* obj
+        );
     };
 }
