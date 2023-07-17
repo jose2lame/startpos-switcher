@@ -16,3 +16,6 @@
 [submodule "external/mat-dash"]
 	path = external/mat-dash
 	url = https://github.com/matcool/mat-dash.git
+[submodule "external/gdhm-api"]
+	path = external/gdhm-api
+	url = https://github.com/zaphir-code/GDHM-API.git
