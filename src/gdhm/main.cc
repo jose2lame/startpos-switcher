@@ -9,8 +9,8 @@
 #include <gdhm.hpp>
 #include <nlohmann/json.hpp>
 
-#include "../mods.h"
-#include "../switcher.h"
+#include "../mods/mods.h"
+#include "../switcher/switcher.h"
 
 #define CHECKBOX(name, value, onActivate) \
     gdhm::gui::checkbox ( \

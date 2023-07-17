@@ -1,6 +1,6 @@
 #include "switcher.h"
 
-#include "mods.h"
+#include "../mods/mods.h"
 
 using namespace cocos2d;
 using namespace gd;

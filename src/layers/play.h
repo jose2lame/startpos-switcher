@@ -2,8 +2,8 @@
 #define STARTPOS_SWITCHER_SRC_LAYERS_PLAY_H_
 
 #include <gd.h>
-#include "../mods.h"
-#include "../switcher.h"
+#include "../mods/mods.h"
+#include "../switcher/switcher.h"
 
 using namespace cocos2d;
 using namespace gd;

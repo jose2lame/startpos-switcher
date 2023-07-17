@@ -10,9 +10,9 @@
 #include <matdash/boilerplate.hpp>
 #include <nlohmann/json.hpp>
 
-#include "gdhm/main.h"
-#include "layers.h"
-#include "mods.h"
+#include "../gdhm/main.h"
+#include "../layers/layers.h"
+#include "../mods/mods.h"
 
 using nlohmann::json;
 void mod_main(HMODULE hModule) {
