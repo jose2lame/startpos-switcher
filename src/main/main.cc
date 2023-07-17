@@ -44,7 +44,7 @@ void mod_main(HMODULE hModule) {
       if (fs.is_open()) {
         fs <<  
             "{\"Toogle\" : false,"
-            "\"Use A/D Key Binds\" : false,"
+            "\"Use A/D Keybinds\" : false,"
             "\"Hide Interface\" : false,"
             "\"Switch On Death\" : false,"
             "\"Use Arrows\" : false"

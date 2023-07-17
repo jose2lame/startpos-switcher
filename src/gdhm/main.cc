@@ -34,7 +34,7 @@ void GDHMHeader() {
     fs.open(".ephir-mods/startpos-switcher/data/settings.json", std::ios::out | std::ios::trunc);
     if (fs.is_open()) {
       j["Toogle"] = mods::is_toogled;
-      j["Use A/D Key Binds"] = mods::is_using_ad;
+      j["Use A/D Keybinds"] = mods::is_using_ad;
       j["Hide Interface"] = mods::is_hidden_interface;
       j["Switch On Death"] = mods::is_to_switch_on_death;
       j["Use Arrows"] = mods::is_used_arrows;
@@ -69,7 +69,7 @@ void GDHMHeader() {
   setkey_binds();
   onToogle();
   CHECKBOX("Toogle", &mods::is_toogled, onToogle);
-  CHECKBOX("Use A/D Key Binds", &mods::is_using_ad, setkey_binds);
+  CHECKBOX("Use A/D Keybinds", &mods::is_using_ad, setkey_binds);
   CHECKBOX("Hide Interface", &mods::is_hidden_interface, onToogle);
   CHECKBOX("Switch On Death", &mods::is_to_switch_on_death, updateJson);
   CHECKBOX("Use Arrows", &mods::is_used_arrows, onToogle);
