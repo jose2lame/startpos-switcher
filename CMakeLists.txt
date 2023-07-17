@@ -1,23 +1,15 @@
 cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
-
 set(CPM_SOURCE_CACHE ${CMAKE_SOURCE_DIR}/.cache/CPM)
-
 set(MOD_FOLDER D:/Games/gd/.GDHM/api)
-
 set(PROJ StartposSwitcher)
-
 set(JSON_BuildTests OFF CACHE INTERNAL "")
-
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 foreach( OUTPUTCONFIG ${CMAKE_CONFIGURATION_TYPES} )
     string( TOUPPER ${OUTPUTCONFIG} OUTPUTCONFIG )
     set( CMAKE_RUNTIME_OUTPUT_DIRECTORY_${OUTPUTCONFIG} ${MOD_FOLDER})
 endforeach( OUTPUTCONFIG CMAKE_CONFIGURATION_TYPES )
-
 project(${PROJ} VERSION 0.5.2 DESCRIPTION "Startpos Switcher" LANGUAGES CXX)
-
 add_subdirectory(external/fmod-headers)
 add_subdirectory(external/cocos-headers)
 add_subdirectory(external/gd.h)
@@ -25,9 +17,6 @@ add_subdirectory(external/minhook-dll)
 add_subdirectory(external/mat-dash)
 add_subdirectory(external/gdhm-api)
 add_subdirectory(external/json)
-
-file(GLOB_RECURSE StartposSwitcher_SOURCES src/*.cpp)
-
+file(GLOB_RECURSE StartposSwitcher_SOURCES src/*.cc src/gdhm/*.cc)
 add_library(${PROJ} SHARED ${StartposSwitcher_SOURCES})
-
 target_link_libraries(${PROJ} cocos2d minhook gdhm mat-dash gd_h fmod nlohmann_json::nlohmann_json)

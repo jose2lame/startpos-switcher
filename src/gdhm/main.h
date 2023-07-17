@@ -1,0 +1,7 @@
+#ifndef STARTPOS_SWITCHER_GDHM_MAIN_H_
+#define STARTPOS_SWITCHER_GDHM_MAIN_H_
+
+void GDHMHeader();
+void GDHMFooter();
+
+#endif // STARTPOS_SWITCHER_GDHM_MAIN_H_
