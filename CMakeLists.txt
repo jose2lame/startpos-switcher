@@ -16,41 +16,18 @@ foreach( OUTPUTCONFIG ${CMAKE_CONFIGURATION_TYPES} )
     set( CMAKE_RUNTIME_OUTPUT_DIRECTORY_${OUTPUTCONFIG} ${MOD_FOLDER})
 endforeach( OUTPUTCONFIG CMAKE_CONFIGURATION_TYPES )
 
-include(cmake/CPM.cmake)
-
 project(${PROJ} VERSION 0.5.2 DESCRIPTION "Startpos Switcher" LANGUAGES CXX)
 
-CPMAddPackage(
-  NAME Ccache.cmake
-  GITHUB_REPOSITORY TheLartians/Ccache.cmake
-  VERSION 1.2.4)
-CPMAddPackage(
-    NAME minhook-dll
-    GITHUB_REPOSITORY zaphir-code/minhook-dll
-    GIT_TAG e5a011f)
-CPMAddPackage(
-    NAME mat-dash
-    GITHUB_REPOSITORY matcool/mat-dash
-    GIT_TAG 294126a)
-CPMAddPackage(
-    NAME gdhm
-    GITHUB_REPOSITORY zaphir-code/GDHM-API
-    GIT_TAG 428be32)
-CPMAddPackage(
-    NAME cocos2d
-    GITHUB_REPOSITORY HJfod/cocos-headers
-    GIT_TAG 231afab)
-CPMAddPackage(
-    NAME gd_h
-    GITHUB_REPOSITORY zaphir-code/gd.h
-    GIT_TAG 9fdf329)
-CPMAddPackage(
-    NAME nlohmann_json
-    GITHUB_REPOSITORY nlohmann/json
-    VERSION 3.11.2)
+add_subdirectory(external/fmod-headers)
+add_subdirectory(external/cocos-headers)
+add_subdirectory(external/gd.h)
+add_subdirectory(external/minhook-dll)
+add_subdirectory(external/mat-dash)
+add_subdirectory(external/gdhm-api)
+add_subdirectory(external/json)
 
 file(GLOB_RECURSE StartposSwitcher_SOURCES src/*.cpp)
 
 add_library(${PROJ} SHARED ${StartposSwitcher_SOURCES})
 
-target_link_libraries(${PROJ} cocos2d minhook-dll gdhm mat-dash gd_h nlohmann_json::nlohmann_json)
+target_link_libraries(${PROJ} cocos2d minhook gdhm mat-dash gd_h fmod nlohmann_json::nlohmann_json)
