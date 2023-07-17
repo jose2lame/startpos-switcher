@@ -76,5 +76,5 @@ void GDHMHeader() {
 }
 void GDHMFooter() {
   gdhm::gui::label("");
-  gdhm::gui::label("By GD Ephir");
+  gdhm::gui::label("By Ephir");
 }
