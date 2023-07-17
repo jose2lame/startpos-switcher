@@ -28,13 +28,13 @@ using nlohmann::json;
 void GDHMHeader() {
   auto updateJson = []() {
     json j = {};
-    std::fstream fs(".startpos_switcher/settings.json", std::ios::in | std::ios::out);
+    std::fstream fs(".ephir-mods/startpos-switcher/data/settings.json", std::ios::in | std::ios::out);
     if (fs.is_open()) fs >> j;
     fs.close();
-    fs.open(".startpos_switcher/settings.json", std::ios::out | std::ios::trunc);
+    fs.open(".ephir-mods/startpos-switcher/data/settings.json", std::ios::out | std::ios::trunc);
     if (fs.is_open()) {
       j["Toogle"] = mods::is_toogled;
-      j["Use A/D key_binds"] = mods::is_using_ad;
+      j["Use A/D Key Binds"] = mods::is_using_ad;
       j["Hide Interface"] = mods::is_hidden_interface;
       j["Switch On Death"] = mods::is_to_switch_on_death;
       j["Use Arrows"] = mods::is_used_arrows;
@@ -69,7 +69,7 @@ void GDHMHeader() {
   setkey_binds();
   onToogle();
   CHECKBOX("Toogle", &mods::is_toogled, onToogle);
-  CHECKBOX("Use A/D key_binds", &mods::is_using_ad, setkey_binds);
+  CHECKBOX("Use A/D Key Binds", &mods::is_using_ad, setkey_binds);
   CHECKBOX("Hide Interface", &mods::is_hidden_interface, onToogle);
   CHECKBOX("Switch On Death", &mods::is_to_switch_on_death, updateJson);
   CHECKBOX("Use Arrows", &mods::is_used_arrows, onToogle);

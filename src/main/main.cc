@@ -26,10 +26,10 @@ void mod_main(HMODULE hModule) {
     matdash::add_hook<&ModUILayer::KeyDown>(gd::base + 0x25F890);
     matdash::add_hook<&ModPauseLayer::KeyDown>(gd::base + 0x1E6580);
     matdash::add_hook<&ModMenuLayer::onMoreGames>(gd::base + 0x1919C0);
-    std::filesystem::create_directory(".startpos_switcher");
-    if (std::filesystem::exists(".startpos_switcher/settings.json")) {
+    std::filesystem::create_directory(".ephir-mods/startpos-switcher/data");
+    if (std::filesystem::exists(".ephir-mods/startpos-switcher/data/settings.json")) {
       json j = {};
-      std::ifstream fs(".startpos_switcher/settings.json");
+      std::ifstream fs(".ephir-mods/startpos-switcher/data/settings.json");
       if (fs.is_open()) {
         fs >> j;
         mods::is_toogled = j["Toogle"].get<bool>();
@@ -40,11 +40,11 @@ void mod_main(HMODULE hModule) {
       }
       fs.close();
     } else {
-      std::ofstream fs(".startpos_switcher/settings.json", std::ios::out);
+      std::ofstream fs(".ephir-mods/startpos-switcher/data/settings.json", std::ios::out);
       if (fs.is_open()) {
         fs <<  
             "{\"Toogle\" : false,"
-            "\"Use A/D key_binds\" : false,"
+            "\"Use A/D Key Binds\" : false,"
             "\"Hide Interface\" : false,"
             "\"Switch On Death\" : false,"
             "\"Use Arrows\" : false"
