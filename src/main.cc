@@ -11,7 +11,7 @@
 #include <nlohmann/json.hpp>
 
 #include "gdhm/main.h"
-#include "mod_layers.h"
+#include "layers.h"
 #include "mods.h"
 
 using nlohmann::json;
