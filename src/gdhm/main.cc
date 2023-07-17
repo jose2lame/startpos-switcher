@@ -12,17 +12,6 @@
 #include "../mods/mods.h"
 #include "../switcher/switcher.h"
 
-#define CHECKBOX(name, value, onActivate) \
-    gdhm::gui::checkbox ( \
-        gdhm::new_id, \
-        name, \
-        value, \
-        nullptr, \
-        onActivate, \
-        "", \
-        onActivate \
-    )
-
 using namespace cocos2d;
 using nlohmann::json;
 void GDHMHeader() {
@@ -68,11 +57,18 @@ void GDHMHeader() {
   };
   SetKeybinds();
   OnToogle();
-  CHECKBOX("Toogle", &mods::is_toogled, OnToogle);
-  CHECKBOX("Use A/D Keybinds", &mods::is_using_ad, SetKeybinds);
-  CHECKBOX("Hide Interface", &mods::is_hidden_interface, OnToogle);
-  CHECKBOX("Switch On Death", &mods::is_to_switch_on_death, UpdateJson);
-  CHECKBOX("Use Arrows", &mods::is_used_arrows, OnToogle);
+  gdhm::gui::checkbox(gdhm::new_id, "Toogle", &mods::is_toogled, nullptr, 
+                      OnToogle, "", OnToogle);
+  gdhm::gui::checkbox(gdhm::new_id, "Use A/D Keybinds", &mods::is_using_ad,
+                      nullptr, SetKeybinds, "", SetKeybinds);
+  gdhm::gui::checkbox(gdhm::new_id, "Hide Interface",
+                      &mods::is_hidden_interface, nullptr, OnToogle, "",
+                      OnToogle);
+  gdhm::gui::checkbox(gdhm::new_id, "Switch On Death",
+                      &mods::is_to_switch_on_death, nullptr, UpdateJson, "",
+                      UpdateJson);
+  gdhm::gui::checkbox(gdhm::new_id, "Use Arrows", &mods::is_used_arrows,
+                      nullptr, OnToogle, "", OnToogle);
 }
 void GDHMFooter() {
   gdhm::gui::label("");
