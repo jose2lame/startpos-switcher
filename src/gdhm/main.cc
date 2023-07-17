@@ -26,7 +26,7 @@
 using namespace cocos2d;
 using nlohmann::json;
 void GDHMHeader() {
-  auto updateJson = []() {
+  auto UpdateJson = []() {
     json j = {};
     std::fstream fs(".ephir-mods/startpos-switcher/data/settings.json", std::ios::in | std::ios::out);
     if (fs.is_open()) fs >> j;
@@ -42,12 +42,12 @@ void GDHMHeader() {
     }
     fs.close();
   };
-  auto setkey_binds = [&updateJson]() {
+  auto SetKeybinds = [&UpdateJson]() {
     if (mods::is_using_ad) switcher::key_binds = {KEY_A, KEY_D};
     else switcher::key_binds = {KEY_Left, KEY_Right};
-    updateJson();
+    UpdateJson();
   };
-  auto onToogle = [&updateJson]() {
+  auto OnToogle = [&UpdateJson]() {
     if (switcher::is_created) {
       if (switcher::is_in_menu == false) {
           switcher::text->setVisible(!(mods::is_hidden_interface) && mods::is_toogled && 
@@ -64,15 +64,15 @@ void GDHMHeader() {
               mods::is_used_arrows);
       }
     }
-    updateJson();
+    UpdateJson();
   };
-  setkey_binds();
-  onToogle();
-  CHECKBOX("Toogle", &mods::is_toogled, onToogle);
-  CHECKBOX("Use A/D Keybinds", &mods::is_using_ad, setkey_binds);
-  CHECKBOX("Hide Interface", &mods::is_hidden_interface, onToogle);
-  CHECKBOX("Switch On Death", &mods::is_to_switch_on_death, updateJson);
-  CHECKBOX("Use Arrows", &mods::is_used_arrows, onToogle);
+  SetKeybinds();
+  OnToogle();
+  CHECKBOX("Toogle", &mods::is_toogled, OnToogle);
+  CHECKBOX("Use A/D Keybinds", &mods::is_using_ad, SetKeybinds);
+  CHECKBOX("Hide Interface", &mods::is_hidden_interface, OnToogle);
+  CHECKBOX("Switch On Death", &mods::is_to_switch_on_death, UpdateJson);
+  CHECKBOX("Use Arrows", &mods::is_used_arrows, OnToogle);
 }
 void GDHMFooter() {
   gdhm::gui::label("");
