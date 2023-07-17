@@ -1,0 +1,15 @@
+[submodule "external/fmod-headers"]
+	path = external/fmod-headers
+	url = https://github.com/adarift/fmod-headers.git
+[submodule "external/cocos-headers"]
+	path = external/cocos-headers
+	url = https://github.com/zaphir-code/cocos-headers.git
+[submodule "external/gd.h"]
+	path = external/gd.h
+	url = https://github.com/zaphir-code/gd.h.git
+[submodule "external/minhook-dll"]
+	path = external/minhook-dll
+	url = https://github.com/zaphir-code/minhook-dll.git
+[submodule "external/json"]
+	path = external/json
+	url = https://github.com/nlohmann/json.git
